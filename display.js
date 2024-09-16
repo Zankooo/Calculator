@@ -27,8 +27,6 @@ function onclick(event){
         if (izraz.length > 0){
             izraz = izraz.slice(0, -1)
         }
-        
-        
     }
     
     else if (vrednost === "=") {
