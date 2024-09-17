@@ -23,18 +23,27 @@ function onclick(event){
         vrednost = value
     }
     
+    //backspace pobrišemo zadnji znake
     if (vrednost === "backspace"){
         if (izraz.length > 0){
             izraz = izraz.slice(0, -1)
         }
     }
     
+    //klicemo funkcijo izracunaj
     else if (vrednost === "=") {
+        //da napise enter values ce nismo nic napisali in dali direkt enter
+        if (izraz.length === 0){
+            console.log("napaka")
+            display.innerHTML = "Error";
+            return
+        }
         izracunaj(izraz)
         return
     }
+    //lepimo na izraz
     else {
-        izraz = izraz.concat(value)
+        izraz = izraz.concat(vrednost)
     }
 
     display.innerHTML = izraz
@@ -46,16 +55,74 @@ function onclick(event){
     
 }
 
-
-
-
 function izracunaj(izraz){
-    console.log("to je izraz", izraz)
-    let izracunano = eval(izraz)
-    display.innerHTML = ""
-    display.innerHTML = izracunano
+    let racun = izraz;
     
+    if ((racun.includes(',')) && (racun.includes('x'))){
+        console.log("Pretvorba vejice in x")
+        let koncni = pretvorba_x_v_zvezdico(pretvorba_vejica_v_piko(racun))
+        let izracunano = eval(koncni);
+        display.innerHTML = izracunano;
+    }
+
+    else if (racun.includes('x')){
+        console.log("Pretvorba samo x")
+        let pretvorjenRacun = pretvorba_x_v_zvezdico(racun)
+        let izracunano = eval(pretvorjenRacun)
+        display.innerHTML = izracunano 
+        
+    }
+    else if (racun.includes(',')){
+        console.log("Pretvorba samo vejice")
+        let pretvorjenRacun = pretvorba_vejica_v_piko(racun)
+        let izracunano = eval(pretvorjenRacun)
+        display.innerHTML = izracunano 
+    }
+   
+
+    //ce racun ne vsebuje niti x niti *
+    else{
+        console.log("To je else")
+        console.log("TO JE RACUN, KI BO SEL V EVAL:", racun)
+        let izracunano = eval(racun)
+        console.log("izracunano je " , izracunano)
+        display.innerHTML = izracunano 
+    }
+
+
 }
+
+//pretvorbe
+function pretvorba_vejica_v_piko(racun){
+    let pretvorjenRacun = racun.replace(/,/g , ".");
+    return pretvorjenRacun;
+}
+
+function pretvorba_x_v_zvezdico(racun){
+    let pretvorjenRacun = racun.replace(/x/g, "*");
+    return pretvorjenRacun;
+}
+
+
+
+
+//KAJ DELA:
+// - SESTEVANJE: INT FLOAT 
+// - ODSTEVANJE: INT FLOAT 
+// - MNOZENJE: DELA VSE
+// - DELJENJE: INT DELA
+
+
+
+
+
+// ŠE NAREST:
+// ČE SO VEČ KOT 2 DECIMALKE DA TI ZAOKROZI NA DVE
+// MINUS PREDZNAK JE ZDEJ KR OBIČEN MINUS -> KAJ NAREST
+// DODAT ŠE TIST ZGORNJI DISPLAY KJER
+// PROCENT TI SAMO DELI Z 100
+
+
 
 
 
