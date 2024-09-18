@@ -62,9 +62,10 @@ function izracunaj(izraz){
         console.log("Pretvorba vejice in x")
         let koncni = pretvorba_x_v_zvezdico(pretvorba_vejica_v_piko(racun))
         let izracunano = eval(koncni);
-        display.innerHTML = izracunano;
+        display.innerHTML = izracunano;   
     }
-
+    
+    
     else if (racun.includes('x')){
         console.log("Pretvorba samo x")
         let pretvorjenRacun = pretvorba_x_v_zvezdico(racun)
@@ -79,7 +80,6 @@ function izracunaj(izraz){
         display.innerHTML = izracunano 
     }
    
-
     //ce racun ne vsebuje niti x niti *
     else{
         console.log("To je else")
@@ -88,8 +88,6 @@ function izracunaj(izraz){
         console.log("izracunano je " , izracunano)
         display.innerHTML = izracunano 
     }
-
-
 }
 
 //pretvorbe
@@ -117,7 +115,6 @@ function pretvorba_x_v_zvezdico(racun){
 
 
 // ŠE NAREST:
-// ČE SO VEČ KOT 2 DECIMALKE DA TI ZAOKROZI NA DVE
 // MINUS PREDZNAK JE ZDEJ KR OBIČEN MINUS -> KAJ NAREST
 // DODAT ŠE TIST ZGORNJI DISPLAY KJER
 // PROCENT TI SAMO DELI Z 100
