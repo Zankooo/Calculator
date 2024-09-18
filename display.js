@@ -117,7 +117,7 @@ function pretvorba_x_v_zvezdico(racun){
 // ŠE NAREST:
 // MINUS PREDZNAK JE ZDEJ KR OBIČEN MINUS -> KAJ NAREST
 // DODAT ŠE TIST ZGORNJI DISPLAY KJER
-// PROCENT TI SAMO DELI Z 100
+// PROCENT TI SAMO DELI Z 100 ampak ga daš lahko tudi v racun
 
 
 
