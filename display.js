@@ -48,10 +48,27 @@ function onclick(event){
         // klele moramo odstranit 
         let stevilka_krat_minus_ena = plus_minus(izraz)
         console.log("stevilka je " + stevilka_krat_minus_ena)
-        //dobit moramo dolzino stringa brez obeh oklepajev in minusa spredi. da pac odstranimo staro cifro ko dodamo novo pac
-        let dolzina = ((stevilka_krat_minus_ena.length) - 3) * -1;
-        console.log("dolzina je z minusom " + dolzina)
-        let izrazz = izraz.slice(0, dolzina);
+        //tukaj sedaj pa moramo odstranit prejsno stevilko, torej ali pozitivno ali negativno.
+        //ker ce mi zamenjamo v bistvu, staro za novo
+        // ce je stevilka_krat_minus_ena negativna moramo odstranit pozitivno od prej in dodat novo negativno
+        let izrazz;
+        if (stevilka_krat_minus_ena[stevilka_krat_minus_ena.length - 1] === ")"){
+            console.log("prej smo meli pozitivno in pozitivno moramo odstranit")
+            let dolzina = ((stevilka_krat_minus_ena.length) - 3) * -1;
+            console.log("dolzina brez z minusom " + dolzina)
+            console.log(izraz)
+            izrazz = izraz.slice(0, dolzina);
+            console.log("izrazz je " + izrazz)
+        }
+        // ce je pa stevilka_krat_minus_ena pozitivna, moramo pa odstranit negativno od prej in dodat pozitivno
+        // 9x(-3,14)
+        else {
+            let dolzina = ((stevilka_krat_minus_ena.length) + 3) * -1;
+            izrazz = izraz.slice(0,dolzina);
+            console.log("izrazz je " + izrazz)
+        }
+
+        
         
         izraz = izrazz + stevilka_krat_minus_ena
     }
@@ -75,13 +92,35 @@ function onclick(event){
 function plus_minus(izraz){
     //pretvorili smo izraz ki je string v number da bomo lahko lazje operirali
     //pretvorimo zadnjo stevko v int
+    if (izraz[izraz.length - 1] == ")"){
+        console.log("opazili smo da je zadnji character zaklepaj, izraz je " + izraz)
+        //jst bi naredil for loop nazaj, in sel dokler ne vidis (
+        // in ko vidis odrezes izraz, ga das v spremenljivko in odstranis zadnji character ki je )
+        // odstranis prvega in drugega
+        // in nato nalepis na izraz in returnas
+        let odrezano;
+        for (let i = izraz.length - 1; i >= 0; i--){
+            if (izraz[i] == "("){
+                odrezano = izraz.slice(i, izraz.length);
+                console.log("ali smo odrezali (-3,14) ? " + odrezano)
+                break
+            }
+        }
+        
+        let pozitiven = odrezano.slice(2, odrezano.length - 1);  // From index 1 to length - 1
+        console.log("Brez oklepaje in minusov" + pozitiven);
+        return pozitiven;
+    }
+
     let zadnjaStevka = parseInt(izraz[izraz.length - 1]);
+    console.log("zadnja stevka je " + zadnjaStevka)
     
     if ( (izraz == "") || (typeof(zadnjaStevka) != 'number') ){
         
         console.log("Z klikom plus minus nerabimo nic naredit")
         return izraz
     } 
+    
     else {
         console.log("moramo neki naredit, ker je zadnja stvar stevilka")
         let stevilo = ""
