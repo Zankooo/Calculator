@@ -66,8 +66,6 @@ function onclick(event){
             console.log("izrazz je " + izrazz)
         }
 
-        
-        
         izraz = izrazz + stevilka_krat_minus_ena
     }
 
@@ -142,7 +140,17 @@ function plus_minus(izraz){
 
 function izracunaj(izraz){
     let racun = izraz;
-    
+
+    let str;
+    //kle moramo dat se pretvorbo %
+    if (racun.includes('%')){
+        //to dela le ce je samo cifra s procentom
+        str = racun.substring(0, racun.length - 1);
+        console.log(str);
+        let deljeno = str / 100;
+        display.innerHTML = deljeno;s
+    }
+
     if ((racun.includes(',')) && (racun.includes('x'))){
         console.log("Pretvorba vejice in x")
         let koncni = pretvorba_x_v_zvezdico(pretvorba_vejica_v_piko(racun))
@@ -166,12 +174,15 @@ function izracunaj(izraz){
     }
    
     //ce racun ne vsebuje niti x niti *
-    else{
-        console.log("To je else")
+    else if ( (!racun.includes('x')) || (!racun.includes('*')) ){
+        console.log("izraz ne vsebuje niti * niti x")
         console.log("TO JE RACUN, KI BO SEL V EVAL:", racun)
         let izracunano = eval(racun)
         console.log("izracunano je " , izracunano)
         display.innerHTML = izracunano 
+    }
+    else{
+        console.log("else se je izvedel")
     }
 }
 
