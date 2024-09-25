@@ -11,8 +11,6 @@ display.innerHTML = 0
 
 
 function onclick(event){
-    
-
     //kle je blo zafrkancije ker img ne more imet value in pol mu das ta getAttribute
     let value = event.target.value;
     let value_backspace = event.target.getAttribute('data-value');
@@ -92,6 +90,7 @@ function onclick(event){
 function plus_minus(izraz){
     //pretvorili smo izraz ki je string v number da bomo lahko lazje operirali
     //pretvorimo zadnjo stevko v int
+    //zadnja je zaklepaj
     if (izraz[izraz.length - 1] == ")"){
         console.log("opazili smo da je zadnji character zaklepaj, izraz je " + izraz)
         //jst bi naredil for loop nazaj, in sel dokler ne vidis (
@@ -114,14 +113,8 @@ function plus_minus(izraz){
 
     let zadnjaStevka = parseInt(izraz[izraz.length - 1]);
     console.log("zadnja stevka je " + zadnjaStevka)
-    
-    if ( (izraz == "") || (typeof(zadnjaStevka) != 'number') ){
-        
-        console.log("Z klikom plus minus nerabimo nic naredit")
-        return izraz
-    } 
-    
-    else {
+    //zadnja stevvka je number
+    if ((zadnjaStevka === 1) || (zadnjaStevka === 2) || (zadnjaStevka === 3) || (zadnjaStevka === 4) || (zadnjaStevka === 5) || (zadnjaStevka === 6) || (zadnjaStevka === 7) || (zadnjaStevka === 8) || (zadnjaStevka === 9) || (zadnjaStevka === 0)){
         console.log("moramo neki naredit, ker je zadnja stvar stevilka")
         let stevilo = ""
         // ce je zadnja stevka cifra naredimo to, in se gremo sprehodi od zadaj naprej po celem izrazu
@@ -138,6 +131,10 @@ function plus_minus(izraz){
         console.log("stevilo ki je nastalo je stevilo (moralo bi biti samo v obratnem vrstnem redu) " + stevilo)
         let reversedStevilo = "(-" + stevilo.split('').reverse().join('') + ")";
         return reversedStevilo;
+    }
+    
+    else {
+        console.log("nerabimo nic naredit, ker zadnji character ni niti zaklepaj niti cifra")
         
     }
 }
