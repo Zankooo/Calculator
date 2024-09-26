@@ -148,7 +148,7 @@ function izracunaj(izraz){
         str = racun.substring(0, racun.length - 1);
         console.log(str);
         let deljeno = str / 100;
-        display.innerHTML = deljeno;s
+        display.innerHTML = deljeno;
     }
 
     if ((racun.includes(',')) && (racun.includes('x'))){
