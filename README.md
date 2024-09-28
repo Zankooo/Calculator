@@ -9,3 +9,9 @@
 ### main -> na katerem je to kar ziher dela in gre kadarkoli v deployment
 ### development -> na katerem se zbirajo dobre funkcionalnosti potencialne nato za merge na main
 ### coding -> kjer se dejansko coda
+
+## Uporabljene tehnologije:
+### - Html
+### - Css
+### - Javascript Dom
+
