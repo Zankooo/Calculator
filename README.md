@@ -5,6 +5,7 @@ https://calculator-apple-six.vercel.app
 
 ## Namen projekta
 Je bilo učenje spletnega programiranja: Html, css, Javascript (osnovnih frontend tehnologij). 
+
 Sekundarni namen pa, da se ustvari tudi nekaj kar izgleda good in je uporabno.
 
 
