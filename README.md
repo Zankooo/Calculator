@@ -1,6 +1,6 @@
 # 🧮 Calculator
 
-## Purpose
+## 🎯 Purpose
 The main goal of making this project was to practice web programming: HTML, CSS, JavaScript (basic frontend technologies).
 
 ## ✨ Features
