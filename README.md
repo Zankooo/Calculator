@@ -1,19 +1,22 @@
-# APPLE CALCULATOR
+# 🧮 Calculator
 
-## Na voljo na povezavi:
+## Name
+The goal was to learn and practice web programming: HTML, CSS, JavaScript (basic frontend technologies).
+
+## ✨ Features
+
+- [ ] Basic arithmetic operations (+, -, *, /)
+- [ ] The design closely resembles the Apple calculator
+
+## 🚀 Usage
+The calculator is available at this link:
 https://calculator-apple-six.vercel.app
 
-## Namen projekta
-Je bilo učenje spletnega programiranja: Html, css, Javascript (osnovnih frontend tehnologij). 
+## 🛠 Technologies
+- **HTML**
+- **CSS**
+- **JavaScript**
 
-Sekundarni namen pa, da se ustvari tudi nekaj kar izgleda good in je uporabno.
+## 📸 Screenshot
 
-
-## Branchi so:
-- main -> na katerem je to kar ziher dela in gre kadarkoli v deployment
-- development -> na katerem se zbirajo dobre funkcionalnosti potencialne nato za merge na main
-- coding -> kjer se dejansko coda
-
-
-
-
+![Alt text](screenshot.png)
