@@ -18,4 +18,5 @@ https://calculator-apple-six.vercel.app
 
 ## 📸 Screenshot
 
-![Alt text](screenshot.png)
+
+<img src="screenshot.png" alt="Calculator Screenshot" width="400" />
